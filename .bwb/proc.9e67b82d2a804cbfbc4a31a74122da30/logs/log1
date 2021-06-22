@@ -1,0 +1,64 @@
+docker run -i --rm  --init --cidfile=/tmp/proc.9e67b82d2a804cbfbc4a31a74122da30/locks/lock0/pid.486 -v /home/lhhung/scratch/imaging/.bwbshare/proc.9e67b82d2a804cbfbc4a31a74122da30/output0:/tmp/output  -e DISPLAY=:4.0 -v /tmp/.X11-unix:/tmp/.X11-unix  -v /home/lhhung/scratch/imaging:/data   biodepot/fiji:openjdk_7 fiji-linux64  
+java.lang.IllegalArgumentException: Cannot handle replace call to create in ij.gui.Toolbar's public void itemStateChanged(java.awt.event.ItemEvent e)
+	at net.imagej.patcher.CodeHacker.replaceCallInMethod(CodeHacker.java:725)
+	at net.imagej.patcher.CodeHacker.replaceCallInMethod(CodeHacker.java:650)
+	at net.imagej.patcher.LegacyExtensions.addEditorExtensionPoints(LegacyExtensions.java:368)
+	at net.imagej.patcher.LegacyExtensions.injectHooks(LegacyExtensions.java:289)
+	at net.imagej.patcher.LegacyInjector.inject(LegacyInjector.java:308)
+	at net.imagej.patcher.LegacyInjector.injectHooks(LegacyInjector.java:109)
+	at net.imagej.patcher.LegacyEnvironment.initialize(LegacyEnvironment.java:101)
+	at net.imagej.patcher.LegacyEnvironment.applyPatches(LegacyEnvironment.java:495)
+	at net.imagej.patcher.LegacyInjector.preinit(LegacyInjector.java:397)
+	at net.imagej.patcher.LegacyInjector.preinit(LegacyInjector.java:376)
+	at fiji.IJ1Patcher.run(IJ1Patcher.java:37)
+	at net.imagej.launcher.ClassLauncher.patchIJ1(ClassLauncher.java:216)
+	at net.imagej.launcher.ClassLauncher.run(ClassLauncher.java:155)
+	at net.imagej.launcher.ClassLauncher.main(ClassLauncher.java:77)
+Caused by: javassist.CannotCompileException: No code replaced!
+	at net.imagej.patcher.CodeHacker$EagerExprEditor.instrument(CodeHacker.java:1280)
+	at net.imagej.patcher.CodeHacker.replaceCallInMethod(CodeHacker.java:670)
+	... 13 more
+java.lang.IllegalArgumentException: Cannot handle app name in ij.gui.YesNoCancelDialog's public <init>(java.awt.Frame parent, java.lang.String title, java.lang.String msg)
+	at net.imagej.patcher.CodeHacker.replaceAppNameInCall(CodeHacker.java:446)
+	at net.imagej.patcher.LegacyExtensions.insertAppNameHooks(LegacyExtensions.java:419)
+	at net.imagej.patcher.LegacyExtensions.injectHooks(LegacyExtensions.java:291)
+	at net.imagej.patcher.LegacyInjector.inject(LegacyInjector.java:308)
+	at net.imagej.patcher.LegacyInjector.injectHooks(LegacyInjector.java:109)
+	at net.imagej.patcher.LegacyEnvironment.initialize(LegacyEnvironment.java:101)
+	at net.imagej.patcher.LegacyEnvironment.applyPatches(LegacyEnvironment.java:495)
+	at net.imagej.patcher.LegacyInjector.preinit(LegacyInjector.java:397)
+	at net.imagej.patcher.LegacyInjector.preinit(LegacyInjector.java:376)
+	at fiji.IJ1Patcher.run(IJ1Patcher.java:37)
+	at net.imagej.launcher.ClassLauncher.patchIJ1(ClassLauncher.java:216)
+	at net.imagej.launcher.ClassLauncher.run(ClassLauncher.java:155)
+	at net.imagej.launcher.ClassLauncher.main(ClassLauncher.java:77)
+Caused by: javassist.CannotCompileException: No code replaced!
+	at net.imagej.patcher.CodeHacker$EagerExprEditor.instrument(CodeHacker.java:1280)
+	at net.imagej.patcher.CodeHacker.replaceAppNameInCall(CodeHacker.java:402)
+	... 12 more
+java.lang.IllegalArgumentException: Cannot handle replace call to installFile in ij.Menus's void installStartupMacroSet()
+	at net.imagej.patcher.CodeHacker.replaceCallInMethod(CodeHacker.java:725)
+	at net.imagej.patcher.CodeHacker.replaceCallInMethod(CodeHacker.java:650)
+	at net.imagej.patcher.LegacyExtensions.overrideStartupMacrosForFiji(LegacyExtensions.java:525)
+	at net.imagej.patcher.LegacyExtensions.injectHooks(LegacyExtensions.java:293)
+	at net.imagej.patcher.LegacyInjector.inject(LegacyInjector.java:308)
+	at net.imagej.patcher.LegacyInjector.injectHooks(LegacyInjector.java:109)
+	at net.imagej.patcher.LegacyEnvironment.initialize(LegacyEnvironment.java:101)
+	at net.imagej.patcher.LegacyEnvironment.applyPatches(LegacyEnvironment.java:495)
+	at net.imagej.patcher.LegacyInjector.preinit(LegacyInjector.java:397)
+	at net.imagej.patcher.LegacyInjector.preinit(LegacyInjector.java:376)
+	at fiji.IJ1Patcher.run(IJ1Patcher.java:37)
+	at net.imagej.launcher.ClassLauncher.patchIJ1(ClassLauncher.java:216)
+	at net.imagej.launcher.ClassLauncher.run(ClassLauncher.java:155)
+	at net.imagej.launcher.ClassLauncher.main(ClassLauncher.java:77)
+Caused by: javassist.CannotCompileException: No code replaced!
+	at net.imagej.patcher.CodeHacker$EagerExprEditor.instrument(CodeHacker.java:1280)
+	at net.imagej.patcher.CodeHacker.replaceCallInMethod(CodeHacker.java:670)
+	... 13 more
+Jun 22, 2021 6:08:00 PM java.util.prefs.FileSystemPreferences$1 run
+INFO: Created user preferences directory.
+[ERROR] Skipping unsupported option -port7
+
+(fiji-linux64:6): Gtk-WARNING **: Attempting to store changes into `/root/.local/share/recently-used.xbel', but failed: Failed to create file '/root/.local/share/recently-used.xbel.JOTH50': No such file or directory
+
+(fiji-linux64:6): Gtk-WARNING **: Attempting to set the permissions of `/root/.local/share/recently-used.xbel', but failed: No such file or directory

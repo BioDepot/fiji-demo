@@ -1,11 +1,11 @@
 <?xml version="1.0" ?><scheme description="" title="fiji-workflow" version="2.0">
 	<nodes>
-		<node id="0" name="File" position="(371.0, 367.0)" project_name="fiji-workflow" qualified_name="fiji_workflow.OWFile.OWFile" title="Fiji" version=""/>
+		<node id="0" name="fiji" position="(371.0, 367.0)" project_name="fiji-workflow" qualified_name="fiji_workflow.OWfiji.OWfiji" title="Fiji" version=""/>
 	</nodes>
 	<links/>
 	<annotations/>
 	<thumbnail/>
 	<node_properties>
-		<properties format="literal" node_id="0">{'controlAreaVisible': True, 'exportGraphics': True, 'inputConnectionsStore': {}, 'iterate': False, 'iterateSettings': {'nWorkers': 1}, 'nWorkers': 1, 'optionsChecked': {}, 'runMode': 0, 'runTriggers': [], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x03R\x00\x00\x01\x83\x00\x00\x05\xea\x00\x00\x02\x85\x00\x00\x03R\x00\x00\x01\x83\x00\x00\x05\xea\x00\x00\x02\x85\x00\x00\x00\x00\x00\x00\x00\x00\x07\x80', 'triggerReady': {}, 'useScheduler': False, '__version__': 1}</properties>
+		<properties format="literal" node_id="0">{'controlAreaVisible': True, 'exportGraphics': True, 'inputConnectionsStore': {}, 'iterate': False, 'iterateSettings': {'nWorkers': 1, 'iterableAttrs': []}, 'nWorkers': 1, 'optionsChecked': {}, 'runMode': 0, 'runTriggers': [], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x18\x00\x00\x07\x7f\x00\x00\x03\x89\x00\x00\x00\x00\x00\x00\x00\x18\x00\x00\x07\x7f\x00\x00\x03\x89\x00\x00\x00\x00\x02\x00\x00\x00\x07\x80', 'triggerReady': {}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
 	</node_properties>
 </scheme>

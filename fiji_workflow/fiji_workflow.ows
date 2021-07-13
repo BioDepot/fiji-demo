@@ -6,6 +6,6 @@
 	<annotations/>
 	<thumbnail/>
 	<node_properties>
-		<properties format="literal" node_id="0">{'controlAreaVisible': True, 'exportGraphics': True, 'inputConnectionsStore': {}, 'iterate': False, 'iterateSettings': {'nWorkers': 1, 'iterableAttrs': []}, 'nWorkers': 1, 'optionsChecked': {}, 'runMode': 0, 'runTriggers': [], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x18\x00\x00\x07\x7f\x00\x00\x03\x89\x00\x00\x00\x00\x00\x00\x00\x18\x00\x00\x07\x7f\x00\x00\x03\x89\x00\x00\x00\x00\x02\x00\x00\x00\x07\x80', 'triggerReady': {}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
+		<properties format="literal" node_id="0">{'controlAreaVisible': True, 'exportGraphics': True, 'fijidir': '', 'inputConnectionsStore': {}, 'installfiji': '', 'iterate': False, 'iterateSettings': {'nWorkers': 1, 'iterableAttrs': []}, 'nWorkers': 1, 'optionsChecked': {'fijidir': False, 'installfiji': False, 'overwrite': False}, 'overwrite': False, 'runMode': 0, 'runTriggers': [], 'savedWidgetGeometry': b'\x01\xd9\xd0\xcb\x00\x02\x00\x00\x00\x00\x03$\x00\x00\x00A\x00\x00\x06\x10\x00\x00\x02Y\x00\x00\x00\x00\x00\x00\x00\x18\x00\x00\x07\x7f\x00\x00\x03\x89\x00\x00\x00\x00\x02\x00\x00\x00\x07\x80', 'triggerReady': {}, 'useGpu': False, 'useScheduler': False, '__version__': 1}</properties>
 	</node_properties>
 </scheme>

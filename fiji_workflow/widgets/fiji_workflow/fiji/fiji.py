@@ -19,8 +19,8 @@ class OWfiji(OWBwBWidget):
     want_main_area = False
     docker_image_name = "biodepot/fiji"
     docker_image_tag = "latest"
-    inputs = [("File",str,"handleInputsFile")]
-    outputs = [("File",str)]
+    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger")]
+    outputs = [("fijidir",str),("installfiji",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
     exportGraphics=pset(False)
@@ -28,6 +28,9 @@ class OWfiji(OWBwBWidget):
     triggerReady=pset({})
     inputConnectionsStore=pset({})
     optionsChecked=pset({})
+    fijidir=pset(None)
+    installfiji=pset(None)
+    overwrite=pset(False)
     def __init__(self):
         super().__init__(self.docker_image_name, self.docker_image_tag)
         with open(getJsonName(__file__,"fiji")) as f:
@@ -36,13 +39,27 @@ class OWfiji(OWBwBWidget):
         self.initVolumes()
         self.inputConnections = ConnectionDict(self.inputConnectionsStore)
         self.drawGUI()
-    def handleInputsFile(self, value, *args):
+    def handleInputsfijidir(self, value, *args):
         if args and len(args) > 0: 
-            self.handleInputs("File", value, args[0][0], test=args[0][3])
+            self.handleInputs("fijidir", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputsinstallfiji(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("installfiji", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputstrigger(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("trigger", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):
         outputValue=None
-        if hasattr(self,"File"):
-            outputValue=getattr(self,"File")
-        self.send("File", outputValue)
+        if hasattr(self,"fijidir"):
+            outputValue=getattr(self,"fijidir")
+        self.send("fijidir", outputValue)
+        outputValue=None
+        if hasattr(self,"installfiji"):
+            outputValue=getattr(self,"installfiji")
+        self.send("installfiji", outputValue)

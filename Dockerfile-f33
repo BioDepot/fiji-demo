@@ -1,6 +1,0 @@
-# Pull base JDK-7 image.
-FROM fedora:33
-RUN dnf -y update && dnf -y install java-1.8.0-openjdk.x86_64
-ENV PATH $PATH:/usr/local/bin/Fiji.app
-ADD Fiji.app /usr/local/bin/Fiji.app
-

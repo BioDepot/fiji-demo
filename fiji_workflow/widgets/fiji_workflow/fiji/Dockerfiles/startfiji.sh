@@ -16,8 +16,8 @@ if [ -n "$installfiji" ]; then
 	fi
 fi
 if [ -n "$fijidir" ]; then
-	exec "$fijidir/ImageJ-linux64"
+	exec "$fijidir/ImageJ-linux64" "$@"
 else
     echo "Running read-only copy of ImageJ/fiji"
-    ImageJ-linux64
+    ImageJ-linux64 "$@"
 fi

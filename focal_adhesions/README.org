@@ -1,0 +1,82 @@
+#+TITLE: Image Analysis with FIJI in [[https://github.com/BioDepot/BioDepot-Workflow-Builder][BWB]]
+
+  This directory contains an example workflow for the BioDepot
+  Workflow Builder demonstrating integration of image processing and
+  analysis in FIJI with other tools for processing and analysis, such
+  as Jupyter Notebooks.
+
+  The sample workflow currently performs segmentation and analysis of
+  focal adhesions in a sample set of images. Test images are
+  downloaded (as well as necessary plugins for ImageJ), focal
+  adhesions are segmented using an ImageJ macro in FIJI, and the
+  results of the segmentation are analyzed and visualized in Jupyter.
+* Usage
+** Opening the Workflow
+   First, clone this repository with ~git clone
+   https://github.com/biodepot/fiji-demo~.
+
+   Then, enter this directory:
+   #+begin_src bash
+     cd fiji-demo/focal_adhesions
+   #+end_src
+   
+   and then run BWB in this directory with 
+
+   #+begin_src bash
+     #!/bin/bash
+     sudo docker run --rm \
+	  -p 5900:5900 -p 6080:6080 \
+	  -v ${PWD}/:/data \
+	  -v /var/run/docker.sock:/var/run/docker.sock \
+	  -v /tmp/.X11-unix:/tmp/.X11-unix \
+	  --privileged --group-add root \
+	  biodepot/bwb
+    #+end_src
+
+   *NOTE: It is important that you run BWB /in this directory/*, since
+   the workflow depends on the files in this repository being provided
+   at the top level of the ~/data~ volume in the container. If you
+   must run BWB from another directory, please replace ~${PWD}~ in the
+   command above with the path to your copy of this repository. Please
+   see [[https://github.com/BioDepot/BioDepot-Workflow-Builder#usage][Usage]] in the BWB documentation for more details.
+
+   Now, open BWB either in the browser or a VNC client (see [[https://github.com/BioDepot/BioDepot-workflow-builder#overview-running-bwb][Running
+   BWB]] in the BWB documentation) and select ~File > Load Workflow~;
+   open ~/data/focal_adhesion_segmentation~.
+
+** Running the Workflow
+   Once the workflow is open, double-click the "Start" widget and
+   press the blue "Start" button.
+
+   The workflow will create several files inside the ~/data~ volume
+   (i.e. inside this directory in your clone of the repository); the
+   final results will be in the form of a Jupyter notebook, and will
+   be saved as ~Results.ipynb~. Once the workflow is complete, a web
+   browser will be opened to display this notebook.
+
+* Citations/Acknowledgements
+  - Algorithm for segmenting focal adhesions is adapted from Horzum
+    /et al./:
+
+    Utku Horzum, Berrin Ozdil, & Devrim Pesen-Okvur
+    (2014). Step-by-step quantitative analysis of focal
+    adhesions. MethodsX, 1, 56-59. (doi:
+    https://doi.org/10.1016/j.mex.2014.06.004)
+
+  - LoG 3D plugin for ImageJ is [[http://bigwww.epfl.ch/sage/soft/LoG3D/][available here]], from Sage /et al./ The plugin is
+    not distributed with the workflow, but is downloaded by the user's computer
+    at runtime.
+
+    D. Sage, F.R. Neumann, F. Hediger, S.M. Gasser, M. Unser,
+    "Automatic Tracking of Individual Fluorescence Particles:
+    Application to the Study of Chromosome Dynamics," IEEE
+    Transactions on Image Processing, vol. 14, no. 9, pp. 1372-1383,
+    September 2005.
+
+  - Dataset used is the one given on the [[https://faas.bme.unc.edu/][Focal Adhesion Analysis
+    Server]], from Berginski and Gomez:
+
+    Berginski ME, Gomez SM. (2013). The Focal Adhesion Analysis
+    Server: a web tool for analyzing focal adhesion
+    dynamics. F1000Research, 2:68 (doi:
+    https://doi.org/10.3410/f1000research.2-68.v1)

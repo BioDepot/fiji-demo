@@ -17,3 +17,7 @@ To update the `biodepot/fiji` image, run `sudo
 ./build_docker_image.sh` *from the top-level directory* of the
 repository. (`sudo` is needed because by default the Docker daemon
 socket is owned by `root`.)
+
+## Fiji BigStitcher App
+The Fiji_bigstitcher.app directory contains a workflow with BigStitcher installed in Bwb as a Fiji plugin. 
+Hörl, D.et al.(2019).  Bigstitcher: reconstructing high-resolution image datasets of cleared and expanded samples. Nature Methods,16(9), 870–874.

@@ -1,14 +1,14 @@
-#+TITLE: Image Analysis with FIJI in [[https://github.com/BioDepot/BioDepot-Workflow-Builder][BWB]]
+#+TITLE: Image Analysis with Fiji in [[https://github.com/BioDepot/BioDepot-Workflow-Builder][Bwb]]
 
   This directory contains an example workflow for the BioDepot
   Workflow Builder demonstrating integration of image processing and
-  analysis in FIJI with other tools for processing and analysis, such
+  analysis in Fiji with other tools for processing and analysis, such
   as Jupyter Notebooks.
 
   The sample workflow currently performs segmentation and analysis of
   focal adhesions in a sample set of images. Test images are
   downloaded (as well as necessary plugins for ImageJ), focal
-  adhesions are segmented using an ImageJ macro in FIJI, and the
+  adhesions are segmented using an ImageJ macro in Fiji, and the
   results of the segmentation are analyzed and visualized in Jupyter.
 * Usage
 ** Opening the Workflow
@@ -20,7 +20,7 @@
      cd fiji-demo/focal_adhesions
    #+end_src
    
-   and then run BWB in this directory with 
+   and then run Bwb in this directory with 
 
    #+begin_src bash
      #!/bin/bash
@@ -33,15 +33,15 @@
 	  biodepot/bwb
     #+end_src
 
-   *NOTE: It is important that you run BWB /in this directory/*, since
+   *NOTE: It is important that you run Bwb /in this directory/*, since
    the workflow depends on the files in this repository being provided
    at the top level of the ~/data~ volume in the container. If you
-   must run BWB from another directory, please replace ~${PWD}~ in the
+   must run Bwb from another directory, please replace ~${PWD}~ in the
    command above with the path to your copy of this repository. Please
-   see [[https://github.com/BioDepot/BioDepot-Workflow-Builder#usage][Usage]] in the BWB documentation for more details.
+   see [[https://github.com/BioDepot/BioDepot-Workflow-Builder#usage][Usage]] in the Bwb documentation for more details.
 
-   Now, open BWB either in the browser or a VNC client (see [[https://github.com/BioDepot/BioDepot-workflow-builder#overview-running-bwb][Running
-   BWB]] in the BWB documentation) and select ~File > Load Workflow~;
+   Now, open Bwb either in the browser or a VNC client (see [[https://github.com/BioDepot/BioDepot-workflow-builder#overview-running-bwb][Running
+   Bwb]] in the Bwb documentation) and select ~File > Load Workflow~;
    open ~/data/focal_adhesion_segmentation~.
 
 ** Running the Workflow

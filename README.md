@@ -19,5 +19,5 @@ repository. (`sudo` is needed because by default the Docker daemon
 socket is owned by `root`.)
 
 ## Fiji BigStitcher App
-The Fiji_bigstitcher.app directory contains a workflow with BigStitcher installed in Bwb as a Fiji plugin. 
-Hörl, D.et al.(2019).  Bigstitcher: reconstructing high-resolution image datasets of cleared and expanded samples. Nature Methods,16(9), 870–874.
+The Fiji_bigstitcher.app directory contains a workflow with BigStitcher installed in Bwb as a Fiji plugin. \
+[BigStitcher](https://www.nature.com/articles/s41592-019-0501-0) -- Hörl, D.et al.(2019).  Bigstitcher: reconstructing high-resolution image datasets of cleared and expanded samples. Nature Methods,16(9), 870–874.

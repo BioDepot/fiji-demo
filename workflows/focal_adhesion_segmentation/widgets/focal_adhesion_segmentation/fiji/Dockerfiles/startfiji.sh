@@ -39,13 +39,13 @@ wait
 if [ -n "$macro" ]; then
 	if [ -n "$quitimmediately" ]; then
 		timestamp=$(date '+%Y_%m_%d__%H_%M_%S');
-		cp $macro "/tmp/macro.$timestamp"
+		echo 'runMacro(''"'"$macro"'",''"'"$param"'")' > "/tmp/macro.$timestamp"
 		echo 'eval("script", "System.exit(0);");' >> "/tmp/macro.$timestamp"
 		macro="/tmp/macro.$timestamp"
 		cat "$macro"
 	fi
 	echo "$cmdString  $@ -macro $macro $param "
-	$($cmdString $@ -macro $macro $param)
+	$cmdString $@ -macro $macro $param
 	exit "$?"
 elif [ -n "$script" ]; then
 	eval "$cmdString $@ -run $macro $param "

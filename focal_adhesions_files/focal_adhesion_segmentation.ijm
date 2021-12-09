@@ -1,7 +1,9 @@
 startTime = getTime();
 
 // Open image
-open("/data/Paxillin_test_set.tif");
+dataset = getArgument;
+if (dataset=="") dataset="/data/fiji-test/Paxillin_test_set.tif";
+open(dataset);
 
 // Subtract background
 print("Subtracting background...");
@@ -17,16 +19,16 @@ for (i = 1; i <= slices; i++) {
 }
 
 // Exponentiation
-print("Applying mathematical exponentiation...")
+print("Applying mathematical exponentiation...");
 run("Exp", "stack");
 
 // Enhance brightness and contrast
-print("Enhancing brightness and contrast...")
+print("Enhancing brightness and contrast...");
 run("Enhance Contrast", "saturated=0.35");
 run("Apply LUT", "stack");
 
 // Apply LoG 3D filter
-print("Applying Laplacian of Gaussians (LoG)...")
+print("Applying Laplacian of Gaussians (LoG)...");
 // LoG 3D processes asynchronously; rather than blocking, execution will move on
 //  to the next command, and a window titled "LoG of <image title>" will appear later. 
 //  To deal with this we have to continuously check for the "LoG of <title>" window, 
@@ -56,4 +58,3 @@ saveAs("Results", "/data/Results.csv");
 
 duration = getTime() - startTime;
 print("Done in " + duration/1000 + " seconds! Exiting...");
-run("Quit");

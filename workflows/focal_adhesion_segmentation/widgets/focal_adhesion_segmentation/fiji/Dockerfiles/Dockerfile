@@ -4,3 +4,4 @@ RUN wget -c https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64
     -O - | tar -xz -C /usr/local/bin/
 ENV PATH $PATH:/usr/local/bin/Fiji.app
 ADD startfiji.sh /usr/local/bin/startfiji.sh
+RUN ImageJ-linux64 --update update

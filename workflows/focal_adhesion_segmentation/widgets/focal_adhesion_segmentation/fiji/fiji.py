@@ -18,8 +18,8 @@ class OWfiji(OWBwBWidget):
     icon = getIconName(__file__,"fiji.png")
     want_main_area = False
     docker_image_name = "biodepot/fiji"
-    docker_image_tag = "experimental"
-    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir")]
+    docker_image_tag = "20201104-1356__update20211208__ubuntu_20.04__eaa1fa5f"
+    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir"),("macrotrigger",str,"handleInputsmacrotrigger"),("datatrigger",str,"handleInputsdatatrigger")]
     outputs = [("fijidir",str),("installfiji",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
@@ -37,6 +37,7 @@ class OWfiji(OWBwBWidget):
     script=pset(False)
     param=pset(None)
     updatefiji=pset(False)
+    quitnow=pset(False)
     def __init__(self):
         super().__init__(self.docker_image_name, self.docker_image_tag)
         with open(getJsonName(__file__,"fiji")) as f:
@@ -68,6 +69,16 @@ class OWfiji(OWBwBWidget):
     def handleInputspluginsdir(self, value, *args):
         if args and len(args) > 0: 
             self.handleInputs("pluginsdir", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputsmacrotrigger(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("macrotrigger", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputsdatatrigger(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("datatrigger", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):

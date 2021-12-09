@@ -19,7 +19,7 @@ class OWjupyter_base(OWBwBWidget):
     want_main_area = False
     docker_image_name = "biodepot/jupyter"
     docker_image_tag = "5.6.0__ubuntu-18.04__firefox-61.0.1__081318"
-    inputs = [("InputDir",str,"handleInputsInputDir"),("Trigger",str,"handleInputsTrigger"),("startingNotebook",str,"handleInputsstartingNotebook")]
+    inputs = [("InputDir",str,"handleInputsInputDir"),("outlineTrigger",str,"handleInputsoutlineTrigger"),("startingNotebook",str,"handleInputsstartingNotebook"),("segmentTrigger",str,"handleInputssegmentTrigger")]
     outputs = [("OutputDir",str),("outputNotebook",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
@@ -60,14 +60,19 @@ class OWjupyter_base(OWBwBWidget):
             self.handleInputs("InputDir", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
-    def handleInputsTrigger(self, value, *args):
+    def handleInputsoutlineTrigger(self, value, *args):
         if args and len(args) > 0: 
-            self.handleInputs("Trigger", value, args[0][0], test=args[0][3])
+            self.handleInputs("outlineTrigger", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleInputsstartingNotebook(self, value, *args):
         if args and len(args) > 0: 
             self.handleInputs("startingNotebook", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputssegmentTrigger(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("segmentTrigger", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):

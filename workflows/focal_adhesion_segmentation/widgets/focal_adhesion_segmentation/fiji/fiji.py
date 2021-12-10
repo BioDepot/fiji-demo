@@ -18,7 +18,7 @@ class OWfiji(OWBwBWidget):
     icon = getIconName(__file__,"fiji.png")
     want_main_area = False
     docker_image_name = "biodepot/fiji"
-    docker_image_tag = "20201104-1356__update20211208__ubuntu_20.04__eaa1fa5f"
+    docker_image_tag = "20201104-1356__update20211210__ubuntu_20.04__1fa37497"
     inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir"),("macrotrigger",str,"handleInputsmacrotrigger"),("datatrigger",str,"handleInputsdatatrigger")]
     outputs = [("fijidir",str),("installfiji",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
@@ -35,9 +35,11 @@ class OWfiji(OWBwBWidget):
     pluginsdir=pset(None)
     macrofile=pset(None)
     script=pset(False)
-    param=pset(None)
     updatefiji=pset(False)
+    param=pset(None)
     quitnow=pset(False)
+    addupdatesite=pset([])
+    additional=pset(None)
     def __init__(self):
         super().__init__(self.docker_image_name, self.docker_image_tag)
         with open(getJsonName(__file__,"fiji")) as f:

@@ -30,12 +30,22 @@ else
     echo "Running read-only copy of ImageJ/fiji"
     cmdString="/usr/local/bin/Fiji.app/ImageJ-linux64"
 fi
-
+if [ -n "$updatesites" ]; then
+  #remove "," between each element 
+  sites=($(echo $updatesites | sed  's/\"\,\"/ /g' | sed  's/\"//g' | sed 's/\[//g' | sed 's/\]//g'))
+  for site in "${sites[@]}"; do
+    updateparam=$(echo $site | sed 's/\,/ /g')
+    echo "$cmdString --update add-update-site $updateparam"
+    exec "$cmdString" --update add-update-site $updateparam &
+    wait
+  done
+fi
 if [ -n "$updatefiji" ]; then
 	echo "Updating FIJI..."
 	exec "$cmdString" --update update &
+	wait
 fi
-wait
+
 if [ -n "$macro" ]; then
 	if [ -n "$quitimmediately" ]; then
 		timestamp=$(date '+%Y_%m_%d__%H_%M_%S');

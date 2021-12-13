@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM openjdk:11.0.13-slim
 RUN apt-get -y update && apt-get -y install default-jdk tar wget curl && rm -rf /var/lib/apt/lists/*
 RUN wget -c https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64.tar.gz \
     -O - | tar -xz -C /usr/local/bin/

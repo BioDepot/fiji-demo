@@ -19,7 +19,7 @@ class OWjupyter_base(OWBwBWidget):
     want_main_area = False
     docker_image_name = "biodepot/jupyter"
     docker_image_tag = "5.6.0__ubuntu-18.04__firefox-61.0.1__081318"
-    inputs = [("InputDir",str,"handleInputsInputDir"),("outlineTrigger",str,"handleInputsoutlineTrigger"),("startingNotebook",str,"handleInputsstartingNotebook"),("segmentTrigger",str,"handleInputssegmentTrigger")]
+    inputs = [("InputDir",str,"handleInputsInputDir"),("outlineTrigger",str,"handleInputsoutlineTrigger"),("startingNotebook",str,"handleInputsstartingNotebook"),("segmentTrigger",str,"handleInputssegmentTrigger"),("timeout",str,"handleInputstimeout")]
     outputs = [("OutputDir",str),("outputNotebook",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
@@ -31,6 +31,7 @@ class OWjupyter_base(OWBwBWidget):
     subcommand=pset("notebook")
     startingNotebook=pset(None)
     type=pset("notebook")
+    timeout=pset(-1)
     outputNotebook=pset(None)
     debug=pset(False)
     generateConfig=pset(False)
@@ -73,6 +74,11 @@ class OWjupyter_base(OWBwBWidget):
     def handleInputssegmentTrigger(self, value, *args):
         if args and len(args) > 0: 
             self.handleInputs("segmentTrigger", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputstimeout(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("timeout", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):

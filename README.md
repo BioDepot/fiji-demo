@@ -99,4 +99,62 @@ options.](images/fiji_widget.png)
   use the Fiji graphical interface; after copying a Fiji widget to
   your own workflow, this option may become unchecked.
 
-## Focal Adhesion Analysis
+## `focal_adhesion_segmentation` - Focal Adhesion Segmentation and Analysis
+
+This workflow implements focal adhesion segmentation using the
+algorithm described by Horzum _et al._ (see
+[Citations/Acknowledgements](#citationsacknowledgements)). To use it, open the workflow
+using the process described in [Opening the
+Workflows](#opening-the-workflows) above; once the workflow is open,
+double-click the "Start" widget and press the blue "Start" button.
+
+The workflow will create a directory called `fiji-test` inside the `/data` volume
+(i.e. inside your clone of the repository), within which several files
+will be created; the final results will be in the form of a Jupyter
+notebook called `Results.ipynb`. Once the workflow is complete, a web
+browser will be opened to display the notebook.
+
+## `bigstitcher** - BigStitcher workflow
+
+**TODO (Shishir): Add specific documentation for BigStitcher workflow**
+
+# Citations/Acknowledgements
+
+  * Algorithm for segmenting focal adhesions is adapted from Horzum
+  _et al._:
+
+    > Utku Horzum, Berrin Ozdil, & Devrim Pesen-Okvur (2014). Step-by-step
+    > 	quantitative analysis of focal adhesions. MethodsX, 1, 56-59. (doi:
+    > 	https://doi.org/10.1016/j.mex.2014.06.004)
+
+  * LoG 3D plugin for ImageJ is [available
+    here](http://bigwww.epfl.ch/sage/soft/LoG3D/), from Sage /et al./
+    The plugin is not distributed with the workflow, but is downloaded
+    by the user's computer at runtime.
+	
+    > D. Sage, F.R. Neumann, F. Hediger, S.M. Gasser, M. Unser,
+    >     "Automatic Tracking of Individual Fluorescence Particles:
+    >     Application to the Study of Chromosome Dynamics," IEEE
+    >     Transactions on Image Processing, vol. 14, no. 9, pp. 1372-1383,
+    >     September 2005.
+  * Dataset used for focal adhesion analysis is the one given on the
+    [Focal Adhesion Analysis Server](https://faas.bme.unc.edu/), from
+    Berginski and Gomez:
+	
+    > Berginski ME, Gomez SM. (2013). The Focal Adhesion Analysis
+    > 	Server: a web tool for analyzing focal adhesion
+    > 	dynamics. F1000Research, 2:68 (doi:
+    > 	https://doi.org/10.3410/f1000research.2-68.v1)
+	
+  * [BigStitcher](https://www.nature.com/articles/s41592-019-0501-0):
+
+    > Hörl, D.et al.(2019).  Bigstitcher: reconstructing high-resolution
+    >     image datasets of cleared and expanded samples. Nature
+    >     Methods,16(9), 870–874.
+  * Fiji:
+  
+    > Schindelin, J., Arganda-Carreras, I., Frise, E., Kaynig, V.,
+    >   Longair, M., Pietzsch, T., … Cardona, A. (2012). Fiji: an
+    >   open-source platform for biological-image analysis. Nature Methods,
+    >   9(7), 676–682. doi:10.1038/nmeth.2019
+

@@ -1,23 +1,102 @@
-# Workflow with Fiji widget
+# Image Analysis and Processing with Fiji in Bwb
 
-## Building `biodepot/fiji` Docker image
-This repository contains the Dockerfile and other files used to build
-the `biodepot/fiji` image; they are located in
-`fiji_workflow/widgets/fiji_workflow/fiji/Dockerfiles`. They include
-the Dockerfile itself and the `startfiji.sh` wrapper script that is
-used to launch Fiji from Bwb. Additionally, a copy of Fiji should be
-in this directory to be added to the Docker image, but it is not
-included in the repository checkout.
+This repository contains several workflows for
+[Bwb](https://github.com/BioDepot/Biodepot-workflow-builder) that
+demonstrate integration of image processing and analysis in
+[Fiji](https://fiji.sc) with other tools for processing and analysis,
+such as Jupyter Notebooks.
 
-The script `build_docker_image.sh` will take care of downloading and
-updating a copy of Fiji to be placed into the Docker container, and
-then will build and tag the `biodepot/fiji` Docker image.
+The `fiji_workflow` directory is a Bwb workflow containing a widget
+for Fiji; the widget has options for executing ImageJ scripts or
+macros, opening images, and accepting additional plugins at
+runtime. The user can additionally choose to use their own
+installation of Fiji rather than the default, which is provided as a
+Docker container.
 
-To update the `biodepot/fiji` image, run `sudo
-./build_docker_image.sh` *from the top-level directory* of the
-repository. (`sudo` is needed because by default the Docker daemon
-socket is owned by `root`.)
+Additionally, There are two sample workflows provided; one performs
+segmentation and analysis of focal adhesions in a sample set of
+images, while the other performs _TODO (Shishir): write what the
+BigStitcher workflow does_.
 
-## Fiji BigStitcher App
-The Fiji_bigstitcher.app directory contains a workflow with BigStitcher installed in Bwb as a Fiji plugin. \
-[BigStitcher](https://www.nature.com/articles/s41592-019-0501-0) -- Hörl, D.et al.(2019).  Bigstitcher: reconstructing high-resolution image datasets of cleared and expanded samples. Nature Methods,16(9), 870–874.
+# Usage
+## Opening the Workflows
+
+First, clone this repository with `git clone
+https://github.com/BioDepot/fiji-demo`.
+
+Then, enter the cloned repository:
+```bash
+cd fiji-demo
+```
+
+and run Bwb in this directory with
+```bash
+sudo docker run --rm \
+ -p 5900:5900 -p 6080:6080 \
+ -v ${PWD}/:/data \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ -v /tmp/.X11-unix:/tmp/.X11-unix \
+ --privileged --group-add root \
+ biodepot/bwb
+ ```
+ 
+Now, open Bwb either in the browser or a VNC client (see [Running
+Bwb](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb)
+in the Bwb documentation) and select `File > Load Workflow`; navigate
+to `/data/workflows` and choose one of the workflows in that directory
+to open. Please read further for more details on each of the
+workflows.
+
+## `fiji_workflow` - Fiji Widget
+The `fiji_workflow` provides the base Fiji widget used in the sample
+workflows. To use it, you can copy the `fiji_workflow` directory to
+your own working directory, and then open this workflow in Bwb before
+your own workflow to add the widget to the toolbox on the left.
+
+The Fiji widget has a few parameters that can be set to use different
+functionalities available in Fiji. 
+![A screenshot of the Fiji widget, showing the different
+options.](images/fiji_widget.png)
+  * **`Fiji.app` directory** - the path to an alternative installation
+    of Fiji, if desired. If not used, the read-only installation of
+    Fiji provided with the `biodepot/fiji` Docker image will be used.
+  * **Install Fiji to directory** - If provided, a path to a directory
+    where Fiji should be installed. A `Fiji.app` directory will be
+    created within the directory provided; this `Fiji.app` directory
+    should be chosen as the "`Fiji.app` directory" above if you want
+    to use the new installation of Fiji.
+  * **Extra plugins directory** - If provided, a path to a directory
+    containing extra plugins (in `.JAR` format) for Fiji; these
+    plugins will be usable in macros and scripts. This is useful if
+    your workflow depends on additional plugins that are not provided
+    with the base distribution of Fiji, or whose licensing terms
+    prohibit redistribution.
+  * **Macro file** - If provided, a path to an [ImageJ
+    macro](https://imagej.net/scripting/macro) file that should be
+    executed when Fiji starts up. *Please note that only one of "Macro
+    file" or "Script file" should be provided; the behavior when both
+    are provided is undefined.*
+  * **Script file** - If provided, a path to an [ImageJ
+    script](https://imagej.net/scripting/) file that should be
+    executed when Fiji starts up. *Please note that only one of "Macro
+    file" or "Script file" should be provided; the behavior when both
+    are provided is undefined.*
+  * **Image file** - If provided, a path to an image that should be
+    opened by Fiji when it starts up. Useful for displaying images at
+    the end of a workflow, or passing an image as an argument to a
+    macro/script.
+  * **Overwrite existing `Fiji.app`** - When using the "Install Fiji
+    to directory" option above, if this option is chosen, the Fiji
+    installation will be overwritten with a fresh installation each
+    time the widget is executed.
+  * **Run Headless** - If chosen, runs Fiji in [Headless
+    mode](https://imagej.net/learn/headless). Please note that some
+    scripts (and most macros) will not work in Headless mode because
+    they require graphical functions; see the Fiji/ImageJ
+    documentation for more information.
+	
+  Please note that "Export graphics" should be checked to be able to
+  use the Fiji graphical interface; after copying a Fiji widget to
+  your own workflow, this option may become unchecked.
+
+## Focal Adhesion Analysis

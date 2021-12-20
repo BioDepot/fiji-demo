@@ -35,6 +35,7 @@ class OWfiji(OWBwBWidget):
     pluginsdir=pset(None)
     macrofile=pset(None)
     scriptfile=pset(None)
+    imagefile=pset(None)
     def __init__(self):
         super().__init__(self.docker_image_name, self.docker_image_tag)
         with open(getJsonName(__file__,"fiji")) as f:

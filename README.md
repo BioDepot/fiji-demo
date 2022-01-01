@@ -117,7 +117,7 @@ browser will be opened to display the notebook.
 ## `bigstitcher` - BigStitcher workflow
 
 The workflow showcases BigStitcher -- a software package that enables efficient image alignment
-and deconvolution of multi-tile and multi-angle image datasets -- running as a Fiji plugin within Bwb. This workflow stitches an image from the Drosophila dataset and can be run within Bwb using the process described in [Opening the Workflows](#opening-the-workflows) above.
+and deconvolution of multi-tile and multi-angle image datasets -- running as a Fiji plugin within Bwb. This workflow stitches an image from the [Drosophila dataset](https://imagej.net/plugins/bigstitcher/#example-datasets) and can be run within Bwb using the process described in [Opening the Workflows](#opening-the-workflows) above.
 
 After opening the workflow, double-click the "Start" widget and press the blue "Start" button. The workflow will automatically download the image data and additional files needed to a directory called `bigstitcher-data` inside the `/data` volume. After the download widget is finished, BigStitcher will open with the Fiji plugin and begin stitching the Drosophila dataset provided. After stitching, the user will be left at the visualization stage in BigDataViewer where a manual transform can be selected and the resulting stitched image can be observed.
 

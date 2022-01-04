@@ -116,10 +116,23 @@ browser will be opened to display the notebook.
 
 ## `bigstitcher` - BigStitcher workflow
 
-The workflow showcases BigStitcher -- a software package that enables efficient image alignment
-and deconvolution of multi-tile and multi-angle image datasets -- running as a Fiji plugin within Bwb. This workflow stitches an image from the [Drosophila dataset](https://imagej.net/plugins/bigstitcher/#example-datasets) and can be run within Bwb using the process described in [Opening the Workflows](#opening-the-workflows) above.
+The workflow showcases BigStitcher -- a software package that enables
+efficient image alignment and deconvolution of multi-tile and
+multi-angle image datasets -- running as a Fiji plugin within
+Bwb. This workflow stitches an image from the [Drosophila
+dataset](https://imagej.net/plugins/bigstitcher/#example-datasets) and
+can be run within Bwb using the process described in [Opening the
+Workflows](#opening-the-workflows) above.
 
-After opening the workflow, double-click the "Start" widget and press the blue "Start" button. The workflow will automatically download the image data and additional files needed to a directory called `bigstitcher-data` inside the `/data` volume. After the download widget is finished, BigStitcher will open with the Fiji plugin and begin stitching the Drosophila dataset provided. After stitching, the user will be left at the visualization stage in BigDataViewer where a manual transform can be selected and the resulting stitched image can be observed.
+After opening the workflow, double-click the "Start" widget and press
+the blue "Start" button. The workflow will automatically download the
+image data and additional files needed to a directory called
+`bigstitcher-data` inside the `/data` volume. After the download
+widget is finished, BigStitcher will open with the Fiji plugin and
+begin stitching the Drosophila dataset provided. After stitching, the
+user will be left at the visualization stage in BigDataViewer where a
+manual transform can be selected and the resulting stitched image can
+be observed.
 
 # Citations/Acknowledgements
 
@@ -131,7 +144,7 @@ After opening the workflow, double-click the "Start" widget and press the blue "
     > 	https://doi.org/10.1016/j.mex.2014.06.004)
 
   * LoG 3D plugin for ImageJ is [available
-    here](http://bigwww.epfl.ch/sage/soft/LoG3D/), from Sage /et al./
+    here](http://bigwww.epfl.ch/sage/soft/LoG3D/), from Sage _et al._
     The plugin is not distributed with the workflow, but is downloaded
     by the user's computer at runtime.
 	
@@ -160,4 +173,22 @@ After opening the workflow, double-click the "Start" widget and press the blue "
     >   Longair, M., Pietzsch, T., … Cardona, A. (2012). Fiji: an
     >   open-source platform for biological-image analysis. Nature Methods,
     >   9(7), 676–682. doi:10.1038/nmeth.2019
+  * [Drosophila brain
+    dataset](http://www.ini.uzh.ch/~acardona/data.html) used in the
+    BigStitcher workflow is a sample provided for
+    [TrakEM2](http://www.ini.uzh.ch/~acardona/trakem2.html), by
+    Cardona _et al._:
+
+    > Cardona A, Saalfeld S, Preibisch S, Schmid B, Cheng A, Pulokas J,
+    >     Tomancak P, Hartenstein V. 2010. An Integrated Micro- and
+    >     Macroarchitectural Analysis of the Drosophila Brain by
+    >     Computer-Assisted Serial Section Electron Microscopy. PLoS Biol
+    >     8(10): e1000502. doi:10.1371/journal.pbio.1000502.
+	
+    > Albert Cardona, Stephan Saalfeld, Johannes Schindelin, Ignacio
+    >     Arganda-Carreras, Stephan Preibisch, Mark Longair, Pavel Tomancak,
+    >     Volker Hartenstein and Rodney J. Douglas. 2012. TrakEM2 Software
+    >     for Neural Circuit Reconstruction. PLoS ONE 7(6): e38011.
+
+
 

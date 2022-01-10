@@ -15,8 +15,8 @@ Docker container.
 
 Additionally, There are two sample workflows provided; one performs
 segmentation and analysis of focal adhesions in a sample set of
-images, while the other performs _TODO (Shishir): write what the
-BigStitcher workflow does_.
+images, while the other demonstrates 3D stitching of sample set of
+images using the BigStitcher software package.
 
 # Usage
 ## Opening the Workflows

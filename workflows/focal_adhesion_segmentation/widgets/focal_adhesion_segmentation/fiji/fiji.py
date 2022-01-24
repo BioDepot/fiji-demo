@@ -19,8 +19,8 @@ class OWfiji(OWBwBWidget):
     want_main_area = False
     docker_image_name = "biodepot/fiji"
     docker_image_tag = "20201104-1356__update20211210__ubuntu_20.04__1fa37497"
-    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir"),("macrotrigger",str,"handleInputsmacrotrigger"),("datatrigger",str,"handleInputsdatatrigger")]
-    outputs = [("fijidir",str),("installfiji",str)]
+    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir"),("macrotrigger",str,"handleInputsmacrotrigger"),("datatrigger",str,"handleInputsdatatrigger"),("param",str,"handleInputsparam")]
+    outputs = [("fijidir",str),("installfiji",str),("param",str),("macrofile",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
     exportGraphics=pset(False)
@@ -83,6 +83,11 @@ class OWfiji(OWBwBWidget):
             self.handleInputs("datatrigger", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
+    def handleInputsparam(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("param", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):
         outputValue=None
         if hasattr(self,"fijidir"):
@@ -92,3 +97,11 @@ class OWfiji(OWBwBWidget):
         if hasattr(self,"installfiji"):
             outputValue=getattr(self,"installfiji")
         self.send("installfiji", outputValue)
+        outputValue=None
+        if hasattr(self,"param"):
+            outputValue=getattr(self,"param")
+        self.send("param", outputValue)
+        outputValue=None
+        if hasattr(self,"macrofile"):
+            outputValue=getattr(self,"macrofile")
+        self.send("macrofile", outputValue)

@@ -19,7 +19,7 @@ class OWbigstitcherfiji(OWBwBWidget):
     want_main_area = False
     docker_image_name = "biodepot/bigstitcher"
     docker_image_tag = "0.83__fiji__20201104-1356__ubuntu_20.04__a169e3c5"
-    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir")]
+    inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir"),("macrofile",str,"handleInputsmacrofile")]
     outputs = [("fijidir",str),("installfiji",str)]
     pset=functools.partial(settings.Setting,schema_only=True)
     runMode=pset(0)
@@ -71,6 +71,11 @@ class OWbigstitcherfiji(OWBwBWidget):
     def handleInputspluginsdir(self, value, *args):
         if args and len(args) > 0: 
             self.handleInputs("pluginsdir", value, args[0][0], test=args[0][3])
+        else:
+            self.handleInputs("inputFile", value, None, False)
+    def handleInputsmacrofile(self, value, *args):
+        if args and len(args) > 0: 
+            self.handleInputs("macrofile", value, args[0][0], test=args[0][3])
         else:
             self.handleInputs("inputFile", value, None, False)
     def handleOutputs(self):

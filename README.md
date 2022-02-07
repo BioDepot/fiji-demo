@@ -71,20 +71,21 @@ options.](images/fiji_widget.png)
     your workflow depends on additional plugins that are not provided
     with the base distribution of Fiji, or whose licensing terms
     prohibit redistribution.
-  * **Macro file** - If provided, a path to an [ImageJ
-    macro](https://imagej.net/scripting/macro) file that should be
-    executed when Fiji starts up. *Please note that only one of "Macro
-    file" or "Script file" should be provided; the behavior when both
-    are provided is undefined.*
-  * **Script file** - If provided, a path to an [ImageJ
+  * **Macro or script file** - If provided, a path to an [ImageJ
+    macro](https://imagej.net/scripting/macro) or [ImageJ
     script](https://imagej.net/scripting/) file that should be
-    executed when Fiji starts up. *Please note that only one of "Macro
-    file" or "Script file" should be provided; the behavior when both
-    are provided is undefined.*
-  * **Image file** - If provided, a path to an image that should be
-    opened by Fiji when it starts up. Useful for displaying images at
-    the end of a workflow, or passing an image as an argument to a
-    macro/script.
+    executed when Fiji starts up.
+  * **Additional update sites** - If provided, the names and URLs of
+    additional [update sites](https://imagej.net/update-sites/) that
+    should be used by the Fiji updater. Names and URLs should be
+    separated by a comma, in the format `name,url`.
+  * **Parameter** - If provided, an arbitrary string that should be
+    given to the macro or script being executed as a parameter. In
+    ImageJ macros, this is available via
+    [`getArgument`](https://imagej.nih.gov/ij/developer/macro/functions.html#getArgument).
+  * **Additional flags** - Any additional parameters that should be
+    made available to the Fiji macro or script; will be stored in the
+    `extraflags` environment variable.
   * **Overwrite existing `Fiji.app`** - When using the "Install Fiji
     to directory" option above, if this option is chosen, the Fiji
     installation will be overwritten with a fresh installation each
@@ -94,6 +95,22 @@ options.](images/fiji_widget.png)
     scripts (and most macros) will not work in Headless mode because
     they require graphical functions; see the Fiji/ImageJ
     documentation for more information.
+  * **File is a script** - Should be set if the file provided via the
+    "**Macro or script file**" option is an [ImageJ
+    script](https://imagej.net/scripting/) instead of an ImageJ macro;
+    Fiji requires this to be specified as there is different behavior
+    for each.
+  * **Update Fiji** - If set, the Fiji updater will be executed before
+    starting Fiji. Note that if you are using the containerized
+    installation of Fiji as opposed to an external Fiji installation,
+    updates _will not persist_ between runs, as a new container is
+    created from the same image each time.
+  * **Continue workflow automatically** - If set, once the macro or
+    script is done executing, Fiji will exit immediately and workflow
+    execution will continue. If not set, Fiji will remain open after
+    macro or script execution to allow the user to inspect or modify
+    results. In this mode, the workflow will only continue executing
+    once Fiji is manually exited by the user.
 	
   Please note that "Export graphics" should be checked to be able to
   use the Fiji graphical interface; after copying a Fiji widget to

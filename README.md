@@ -139,7 +139,10 @@ multi-angle image datasets -- running as a Fiji plugin within
 Bwb. This workflow stitches an image from the [Drosophila
 dataset](https://imagej.net/plugins/bigstitcher/#example-datasets) and
 can be run within Bwb using the process described in [Opening the
-Workflows](#opening-the-workflows) above.
+Workflows](#opening-the-workflows) above. This workflow will create an ImageJ 
+macro using the parameters specified in the macro widget. The workflow will then 
+run the macro to open BigStitcher in Fiji, define the dataset according to the 
+parameters given, and will open the dataset for visualization using the FIJI widget.
 
 After opening the workflow, double-click the "Start" widget and press
 the blue "Start" button. The workflow will automatically download the

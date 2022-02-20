@@ -7,4 +7,4 @@ ICON = "icon/fiji.png"
 
 # Background color for category background in menu
 # and widget icon background in workflow.
-BACKGROUND = "#d4f3ff"
+BACKGROUND = "#dbe6ff"

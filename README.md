@@ -1,35 +1,17 @@
-# Image Analysis and Processing with Fiji in Bwb
+# Image analysis with Bwb
 
-This repository contains several workflows for
-[Bwb](https://github.com/BioDepot/Biodepot-workflow-builder) that
-demonstrate integration of image processing and analysis in
-[Fiji](https://fiji.sc) with other tools for processing and analysis,
-such as Jupyter Notebooks.
+This repository demonstrates how the Biodepot-workflow-builder (Bwb) can be used for portable and reproducible image analysis on a laptop or on a cloud server. We include the Dockerfile for the biodepot/bwb:imaging__latest docker image and several workflows for
+[Bwb](https://github.com/BioDepot/Biodepot-workflow-builder) that demonstrate integration of image processing and analysis in
+[Fiji](https://fiji.sc) with other tools for processing and analysis, such as Jupyter Notebooks.
 
-The `fiji_workflow` directory is a Bwb workflow containing a widget
-for Fiji; the widget has options for executing ImageJ scripts or
-macros, opening images, and accepting additional plugins at
-runtime. The user can additionally choose to use their own
-installation of Fiji rather than the default, which is provided as a
-Docker container.
+## Usage
 
-Additionally, There are two sample workflows provided; one performs
-segmentation and analysis of focal adhesions in a sample set of
-images, while the other demonstrates 3D stitching of sample set of
-images using the BigStitcher software package.
+Fiji and all the demo workflows are included in the imaging version of Bwb. It is also possible to run the default version of Bwb and load the workflows in the github to use Fiji and the demo workflows.
 
-# Usage
-## Opening the Workflows
+### Start the Bwb server
 
-First, clone this repository with `git clone
-https://github.com/BioDepot/fiji-demo`.
+This requires that Docker be installed (i[nstructions here](https://github.com/BioDepot/BioDepot-workflow-builder#installing-and-starting-docker))
 
-Then, enter the cloned repository:
-```bash
-cd fiji-demo
-```
-
-and run Bwb in this directory with
 ```bash
 sudo docker run --rm \
  -p 5900:5900 -p 6080:6080 \
@@ -37,17 +19,31 @@ sudo docker run --rm \
  -v /var/run/docker.sock:/var/run/docker.sock \
  -v /tmp/.X11-unix:/tmp/.X11-unix \
  --privileged --group-add root \
- biodepot/bwb
- ```
- 
-Now, open Bwb either in the browser or a VNC client (see [Running
-Bwb](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb)
-in the Bwb documentation) and select `File > Load Workflow`; navigate
-to `/data/workflows` and choose one of the workflows in that directory
-to open. Please read further for more details on each of the
-workflows.
+ biodepot/bwb:imaging__latest
+```
 
-## `fiji_workflow` - Fiji Widget
+### Connect to Bwb with a browser or VNC client
+
+Now, open Bwb either in the browser or a VNC client. Instructions are  given in  ([Running
+Bwb](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb) in the Bwb documentation). To run on the cloud, a port must be opened for the browser and client to connect to Bwb. There are the some instructions  [here](https://github.com/BioDepot/BioDepot-workflow-builder#how-do-i-run-bwb-on-the-cloud)
+
+### Using Fiji directly
+
+1. From the Imaging panel (drawer) in the left sidebar (toolDock) drag the Fiji widget to the right onto the canvas.
+2. Double-click on the widget and click on the Export graphics checkbox
+3. Enter any optional parameters (starting macros or scripts, extra plugins directory etc) and then click on the start button on the bottom left hand corner.
+4. Fiji will launch.
+
+### Loading the workflows
+
+1. Select `File > Load Workflow`
+2. Navigate to /workflows` and choose one of the workflows in that directory
+   to open. Please read further for more details on each of the
+   workflows.
+
+## Details of workflows
+
+### `fiji_workflow` - Fiji Widget
 The `fiji_workflow` provides the base Fiji widget used in the sample
 workflows. To use it, you can copy the `fiji_workflow` directory to
 your own working directory, and then open this workflow in Bwb before
@@ -112,11 +108,12 @@ options.](images/fiji_widget.png)
     results. In this mode, the workflow will only continue executing
     once Fiji is manually exited by the user.
 	
+
   Please note that "Export graphics" should be checked to be able to
   use the Fiji graphical interface; after copying a Fiji widget to
   your own workflow, this option may become unchecked.
 
-## `focal_adhesion_segmentation` - Focal Adhesion Segmentation and Analysis
+### `focal_adhesion_segmentation` - Focal Adhesion Segmentation and Analysis
 
 This workflow implements focal adhesion segmentation using the
 algorithm described by Horzum _et al._ (see
@@ -131,7 +128,7 @@ will be created; the final results will be in the form of a Jupyter
 notebook called `Results.ipynb`. Once the workflow is complete, a web
 browser will be opened to display the notebook.
 
-## `bigstitcher` - BigStitcher workflow
+### `bigstitcher` - BigStitcher workflow
 
 The workflow showcases BigStitcher -- a software package that enables
 efficient image alignment and deconvolution of multi-tile and
@@ -157,7 +154,7 @@ be observed.
 # Citations/Acknowledgements
 
   * Algorithm for segmenting focal adhesions is adapted from Horzum
-  _et al._:
+    _et al._:
 
     > Utku Horzum, Berrin Ozdil, & Devrim Pesen-Okvur (2014). Step-by-step
     > 	quantitative analysis of focal adhesions. MethodsX, 1, 56-59. (doi:

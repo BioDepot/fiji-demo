@@ -24,7 +24,7 @@ sudo docker run --rm \
 
 #### 2	Connect to Bwb with a browser or VNC client
 
-To use Bwb, the user can use a browser (Chrome/Firefox/Safari) or a VNC client (e/g. RealVNC). Instructions are  given in  ([the Bwb documentation)](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb). To connect to Bwb on the cloud, a port must be opened to allow browser and client to communicate with Bwb. The exact methodology will depend on the cloud provider.  Some instructions for Amazon web services are provided  [here](https://github.com/BioDepot/BioDepot-workflow-builder#how-do-i-run-bwb-on-the-cloud)
+To use Bwb, the user can use a browser (Chrome/Firefox/Safari) or a VNC client (e.g. RealVNC). Instructions are  given in  ([the Bwb documentation)](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb). In most cases, the browser should be set to localhost:6080 if the Bwb server is started on a laptop or the \<ip of the remote machine>:6080  if started on a remote or cloud server. In addition, to connect to Bwb on the cloud, a port must be opened and forwarded to allow browser and client to communicate with Bwb. The exact methodology will depend on the cloud provider.  Some instructions for Amazon web services are provided  [here](https://github.com/BioDepot/BioDepot-workflow-builder#how-do-i-run-bwb-on-the-cloud)
 
 #### 3	Using Fiji as a standalone app
 
@@ -52,20 +52,16 @@ Different widgets from the drawers are available to be dragged and dropped onto 
 
 #### 7	How to quit Bwb
 
-Closing the browser or VNC client does not shut down the Bwb server. If this happens by accident you can reconnect. To shut down the server from Bwb, close the Bwb window (not the browser window - the close button is in the top right hand corner **INSIDE** the browser window). Right-click on the desktop inside the browser and choose "Quit container".
+Closing the browser or VNC client does not shut down the Bwb server. If this happens by accident you can reconnect by re-entering the url. To shut down the server from Bwb, close the Bwb window (not the browser window - the close button is in the top right hand corner **INSIDE** the browser window). Right-click on the desktop inside the browser and choose "Quit container".
 
-## Details of workflows
+## Details for using Fiji widget
 
-### `fiji_workflow` - Fiji Widget
-The `fiji_workflow` provides the base Fiji widget used in the sample
-workflows. To use it, you can copy the `fiji_workflow` directory to
-your own working directory, and then open this workflow in Bwb before
-your own workflow to add the widget to the toolbox on the left.
-
-The Fiji widget has a few parameters that can be set to use different
-functionalities available in Fiji. 
+The Fiji widget can be dragged onto the canvas and used as a standalone application or connected with other widgets to form workflows. Once the widget is dragged onto the canvas, and double-clicking on it reveals a form with parameters that can be set to use different functionalities available in Fiji. Note that to use Fiji, one must check off the "Export graphics" box at the bottom of the form (unless running in headless mode)
 ![A screenshot of the Fiji widget, showing the different
 options.](images/fiji_widget.png)
+
+The possible entries and their function(s) are describe below
+
   * **`Fiji.app` directory** - the path to an alternative installation
     of Fiji, if desired. If not used, the read-only installation of
     Fiji provided with the `biodepot/fiji` Docker image will be used.
@@ -120,11 +116,14 @@ options.](images/fiji_widget.png)
     macro or script execution to allow the user to inspect or modify
     results. In this mode, the workflow will only continue executing
     once Fiji is manually exited by the user.
-	
 
-  Please note that "Export graphics" should be checked to be able to
-  use the Fiji graphical interface; after copying a Fiji widget to
-  your own workflow, this option may become unchecked.
+
+
+## Detail of workflows
+
+### `fiji_workflow` -  To allow any version of Bwb to use Fiji
+The `fiji_workflow` provides the base Fiji widget. This is to allow the standard and other versions of Bwb to load the Fiji widget for use as a standalone or to incorporate the widget into other workflows. The user would load the fiji_workflow workflow from the GitHub to load it into the sidebar tool dock.
+
 
 ### `focal_adhesion_segmentation` - Focal Adhesion Segmentation and Analysis
 

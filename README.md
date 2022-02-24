@@ -140,6 +140,8 @@ will be created; the final results will be in the form of a Jupyter
 notebook called `Results.ipynb`. Once the workflow is complete, a web
 browser will be opened to display the notebook.
 
+A video tutorial can be found [here](https://youtu.be/ymnmdRqS-pE).
+
 ### `bigstitcher` - BigStitcher workflow
 
 The workflow showcases BigStitcher -- a software package that enables
@@ -162,6 +164,8 @@ begin stitching the Drosophila dataset provided. After stitching, the
 user will be left at the visualization stage in BigDataViewer where a
 manual transform can be selected and the resulting stitched image can
 be observed.
+
+A video tutorial can be found [here](https://youtu.be/6S0KJEa3M0w).
 
 # Citations/Acknowledgements
 

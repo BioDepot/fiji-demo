@@ -6,9 +6,9 @@ This repository demonstrates how the Biodepot-workflow-builder (Bwb) can be used
 
 ## Usage
 
-Fiji and all the demo workflows are included in the imaging version of Bwb that is available from our Docker repository or can be built from the provided Dockerfile. It is also possible to run the regular version of Bwb and load the workflows in this github to use Fiji and the demo workflows. Instructions on how to use Fiji and access the demo workflows are given below
+Fiji and all the demo workflows are included in the imaging version of Bwb that is available from our Docker repository or can be built from the provided Dockerfile. It is also possible to run the regular version of Bwb and load the workflows in this github to use Fiji and the demo workflows. Instructions on how to use Fiji and access the demo workflows are given below.
 
-#### 1	Start the Bwb server
+### 1	Start the Bwb server
 
 This requires that Docker be installed ([instructions here](https://github.com/BioDepot/BioDepot-workflow-builder#installing-and-starting-docker)). Then enter the command:
 
@@ -22,11 +22,14 @@ sudo docker run --rm \
  biodepot/bwb:imaging__latest
 ```
 
-#### 2	Connect to Bwb with a browser or VNC client
+#### **Warning** for Windows Subsystem for Linux Users
+Running the workflow in WSL is not officially supported, as graphical support was only just recently added and is not robust yet. For the time being, it is strongly recommended that users on Windows [run a Linux virtual machine](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) inside a software like [VirtualBox](https://www.virtualbox.org/) or [QEMU](https://www.qemu.org/).
+
+### 2	Connect to Bwb with a browser or VNC client
 
 To use Bwb, the user can use a browser (Chrome/Firefox/Safari) or a VNC client (e.g. RealVNC). Instructions are  given in [the Bwb documentation](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb). In most cases, the browser should be set to localhost:6080 if the Bwb server is started on a laptop or the \<ip of the remote machine>:6080  if started on a remote or cloud server. In addition, to connect to Bwb on the cloud, a port must be opened and forwarded to allow browser and client to communicate with Bwb. The exact methodology will depend on the cloud provider.  Some instructions for Amazon web services are provided [here](https://github.com/BioDepot/BioDepot-workflow-builder#how-do-i-run-bwb-on-the-cloud)
 
-#### 3	Using Fiji as a standalone app
+### 3	Using Fiji as a standalone app
 
 Fiji can be started from Bwb and used as a standalone app on your laptop or on the cloud. To do this: 
 
@@ -35,22 +38,22 @@ Fiji can be started from Bwb and used as a standalone app on your laptop or on t
 3. Enter any optional parameters (starting macros or scripts, extra plugins directory etc) and then click on the start button on the bottom left hand corner.
 4. Fiji will launch.
 
-#### 4	Loading the workflows
+### 4	Loading the workflows
 
 The demo workflows are included with the Bwb imaging container image under the /workflows directory. 
 
 1. From the Bwb menu bar, select `File > Load Workflow`
 2. Using the file navigator, navigate to /workflows (note the beginning "/") and choose one of the workflows from that directory to load. Details on each of the workflows are below.
 
-#### 5	How to use custom files, saving results and modified workflows
+### 5	How to use custom files, saving results and modified workflows
 
 Interactions with the user file system are available through directories mounted when Bwb is launched. The example Docker command mounts the directory where Bwb is launched from to the /data mountpoint. Local files are accessible through this the /data directory for reading and writing. User files can be input, and customized workflows and results can be saved here. If Bwb was started on the cloud, files will be read and stored from a directory on the cloud instance.
 
-#### 6	How to build imaging and omics workflows
+### 6	How to build imaging and omics workflows
 
 Different widgets from the drawers are available to be dragged and dropped onto the canvas to be connected into automated or semi-automated workflows. Other workflows can loaded into Bwb and widgets from these workflows also become available to construct custom workflows. All the widgets in this demo can be used in conjunction with any widget in any Bwb workflow. See the [Bwb documentation](https://github.com/BioDepot/BioDepot-workflow-builder#biodepot-workflow-builder-bwb) for how workflows can be assembled, saved and executed. 
 
-#### 7	How to quit Bwb
+### 7	How to quit Bwb
 
 Closing the browser or VNC client does not shut down the Bwb server. If this happens by accident you can reconnect by re-entering the url. To shut down the server from Bwb, close the Bwb window (not the browser window - the close button is in the top right hand corner **INSIDE** the browser window). Right-click on the desktop inside the browser and choose "Quit container".
 

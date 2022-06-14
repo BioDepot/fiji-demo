@@ -10,7 +10,7 @@ Fiji and all the demo workflows are included in the imaging version of Bwb that 
 
 #### 1	Start the Bwb server
 
-This requires that Docker be installed (i[nstructions here](https://github.com/BioDepot/BioDepot-workflow-builder#installing-and-starting-docker)). Then enter the command:
+This requires that Docker be installed ([instructions here](https://github.com/BioDepot/BioDepot-workflow-builder#installing-and-starting-docker)). Then enter the command:
 
 ```bash
 sudo docker run --rm \
@@ -24,7 +24,7 @@ sudo docker run --rm \
 
 #### 2	Connect to Bwb with a browser or VNC client
 
-To use Bwb, the user can use a browser (Chrome/Firefox/Safari) or a VNC client (e.g. RealVNC). Instructions are  given in  ([the Bwb documentation)](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb). In most cases, the browser should be set to localhost:6080 if the Bwb server is started on a laptop or the \<ip of the remote machine>:6080  if started on a remote or cloud server. In addition, to connect to Bwb on the cloud, a port must be opened and forwarded to allow browser and client to communicate with Bwb. The exact methodology will depend on the cloud provider.  Some instructions for Amazon web services are provided  [here](https://github.com/BioDepot/BioDepot-workflow-builder#how-do-i-run-bwb-on-the-cloud)
+To use Bwb, the user can use a browser (Chrome/Firefox/Safari) or a VNC client (e.g. RealVNC). Instructions are  given in [the Bwb documentation](https://github.com/biodepot/biodepot-workflow-builder#overview-running-bwb). In most cases, the browser should be set to localhost:6080 if the Bwb server is started on a laptop or the \<ip of the remote machine>:6080  if started on a remote or cloud server. In addition, to connect to Bwb on the cloud, a port must be opened and forwarded to allow browser and client to communicate with Bwb. The exact methodology will depend on the cloud provider.  Some instructions for Amazon web services are provided [here](https://github.com/BioDepot/BioDepot-workflow-builder#how-do-i-run-bwb-on-the-cloud)
 
 #### 3	Using Fiji as a standalone app
 
@@ -122,7 +122,7 @@ The possible entries and their function(s) are describe below
 ## Detail of workflows
 
 ### `fiji_workflow` -  To allow any version of Bwb to use Fiji
-The `fiji_workflow` provides the base Fiji widget. This is to allow the standard and other versions of Bwb to load the Fiji widget for use as a standalone or to incorporate the widget into other workflows. The user would load the fiji_workflow workflow from the GitHub to load it into the sidebar tool dock.
+The `fiji_workflow` provides the base Fiji widget. This is to allow the standard and other versions of Bwb to load the Fiji widget for use as a standalone or to incorporate the widget into other workflows. The user would load the `fiji_workflow` workflow from the GitHub to load it into the sidebar tool dock.
 
 
 ### `focal_adhesion_segmentation` - Focal Adhesion Segmentation and Analysis

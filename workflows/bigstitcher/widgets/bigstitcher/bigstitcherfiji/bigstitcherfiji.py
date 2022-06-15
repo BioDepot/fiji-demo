@@ -18,7 +18,7 @@ class OWbigstitcherfiji(OWBwBWidget):
     icon = getIconName(__file__,"fiji.png")
     want_main_area = False
     docker_image_name = "biodepot/bigstitcher"
-    docker_image_tag = "0.83__fiji__20201104-1356__ubuntu_20.04__a169e3c5"
+    docker_image_tag = "0.83__fiji__20201104-1356__update20220602__ubuntu_20.04__1f386a34"
     inputs = [("fijidir",str,"handleInputsfijidir"),("installfiji",str,"handleInputsinstallfiji"),("trigger",str,"handleInputstrigger"),("imagefile",str,"handleInputsimagefile"),("pluginsdir",str,"handleInputspluginsdir"),("macrofile",str,"handleInputsmacrofile")]
     outputs = [("fijidir",str),("installfiji",str)]
     pset=functools.partial(settings.Setting,schema_only=True)

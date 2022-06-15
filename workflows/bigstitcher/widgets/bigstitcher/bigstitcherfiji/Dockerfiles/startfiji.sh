@@ -36,13 +36,13 @@ if [ -n "$updatesites" ]; then
   for site in "${sites[@]}"; do
     updateparam=$(echo $site | sed 's/\,/ /g')
     echo "$cmdString --update add-update-site $updateparam"
-    exec "$cmdString" --update add-update-site $updateparam &
+    eval "$cmdString --update add-update-site $updateparam &"
     wait
   done
 fi
 if [ -n "$updatefiji" ]; then
 	echo "Updating FIJI..."
-	exec "$cmdString" --update update &
+	eval "$cmdString --update update &"
 	wait
 fi
 
@@ -58,7 +58,7 @@ if [ -n "$macro" ]; then
 	$cmdString $@ -macro $macro $param
 	exit "$?"
 elif [ -n "$script" ]; then
-	eval "$cmdString $@ -run $macro $param "
+	$cmdString $@ -run $macro $param 
 else
-	exec "$cmdString" "$@"
+	$cmdString $@
 fi

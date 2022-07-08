@@ -57,6 +57,9 @@ Different widgets from the drawers are available to be dragged and dropped onto 
 
 Closing the browser or VNC client does not shut down the Bwb server. If this happens by accident you can reconnect by re-entering the url. To shut down the server from Bwb, close the Bwb window (not the browser window - the close button is in the top right hand corner **INSIDE** the browser window). Right-click on the desktop inside the browser and choose "Quit container".
 
+## Setting up Fiji in the Biodepot-workflow-builder platform on Amazon Web Services (AWS). 
+A video tutorial can be found [here](https://youtu.be/zP9KA4yNSvs).
+
 ## Details for using Fiji widget
 
 The Fiji widget can be dragged onto the canvas and used as a standalone application or connected with other widgets to form workflows. Once the widget is dragged onto the canvas, and double-clicking on it reveals a form with parameters that can be set to use different functionalities available in Fiji. Note that to use Fiji, one must check off the "Export graphics" box at the bottom of the form (unless running in headless mode)

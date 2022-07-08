@@ -229,5 +229,12 @@ A video tutorial can be found [here](https://youtu.be/6S0KJEa3M0w).
     >     Volker Hartenstein and Rodney J. Douglas. 2012. TrakEM2 Software
     >     for Neural Circuit Reconstruction. PLoS ONE 7(6): e38011.
 
+# Troubleshooting
+* If you can't find the /workflows directory after launching Bwb, make sure you have cloned the GitHub repo using git. Specifically, ```git clone https://github.com/biodepot/fiji-demo```, and then change directory into the fiji-demo folder ```cd fiji-demo```. See the setup instructions from scratch in our video tutorial [here](https://youtu.be/ymnmdRqS-pE).
+
+* If you are using a mac with the M1/M2 chip, there is a documented arm/x86 problem with the M1. See  https://docs.docker.com/desktop/mac/apple-silicon/. If you want to use regular x86 containers, you need to run docker under x86 emulation. Try installing Rosetta 2 or a qemu-utm ubuntu VM (which is an emulated x86 VM). We are currently working on extending our support to the arm chip.
+
+* If you are a Windows Subsystem for Linux User, running the workflow in WSL is not officially supported, as graphical support was only just recently added and is not robust yet. For the time being, it is strongly recommended that users on Windows [run a Linux virtual machine](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) inside a software like [VirtualBox](https://www.virtualbox.org/) or [QEMU](https://www.qemu.org/).
+
 
 

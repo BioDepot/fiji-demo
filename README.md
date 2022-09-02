@@ -4,6 +4,11 @@ This repository demonstrates how the Biodepot-workflow-builder (Bwb) can be used
 [Bwb](https://github.com/BioDepot/Biodepot-workflow-builder) that demonstrate integration of image processing and analysis in
 [Fiji](https://fiji.sc) with other tools for processing and analysis, such as Jupyter Notebooks.
 
+## Publication
+
+Cloud-enabled Biodepot workflow builder integrates image processing using Fiji with reproducible data analysis using Jupyter notebooks. Ling-Hong Hung, Evan Straw, Shishir Reddy, Robert Schmitz, Zachary Colburn, and Ka Yee Yeung. [Scientific Reports 12: 14920, 2022](https://www.nature.com/articles/s41598-022-19173-w). 
+Earlier version in [bioRxiv 10.1101/2021.10.22.465513](https://www.biorxiv.org/content/10.1101/2021.10.22.465513v2). 
+
 ## Usage
 
 Fiji and all the demo workflows are included in the imaging version of Bwb that is available from our Docker repository or can be built from the provided Dockerfile. It is also possible to run the regular version of Bwb and load the workflows in this github to use Fiji and the demo workflows. Instructions on how to use Fiji and access the demo workflows are given below.
